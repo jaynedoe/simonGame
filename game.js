@@ -47,8 +47,19 @@ function checkAnswer(currentLevel){
         let wrong = new Audio('sounds/wrong.mp3');
         wrong.play();
         $('body').addClass('game-over');
-        $('#level-title').text('Game Over, Press Restart Below to Play Again');
+        setTimeout(() => {
+            $('body').removeClass('game-over');
+        }, 100);
+        
+        $('#level-title').text('Game Over, Press Spacebar to Play Again');
+        startOver();
     }
+}
+
+function startOver(){
+    level = 0;
+    gamePattern = [];
+    started = false;
 }
 
 function nextSequence() {
